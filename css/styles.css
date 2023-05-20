@@ -1929,7 +1929,7 @@ select:-webkit-autofill:focus {
   display: block;
   content: '';
   left: 0;
-  width: 100%;
+  width: 50%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.1);
 }
