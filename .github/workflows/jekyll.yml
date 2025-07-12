@@ -40,6 +40,15 @@ jobs:
           ruby-version: '3.2' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+      - name: Install OS packages for Jupyter & ImageMagick
+        run: |
+          sudo apt-get update
+          # 安装 ImageMagick（提供 `convert`）
+          sudo apt-get install -y imagemagick
+          # 安装 Python3 和 pip
+          sudo apt-get install -y python3 python3-pip
+          # 安装 Jupyter（提供 `jupyter nbconvert`）
+          pip3 install jupyter
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
