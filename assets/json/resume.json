@@ -1,50 +1,59 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Tao Yu",
+    "label": "PhD in Computer Science",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "yu@tao1995.cn",
+    "phone": "(+86) 18844585349",
+    "url": "www.tao1995.cn",
+    "summary": "A Normal person",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "Jilin University",
+      "postalCode": "130000",
+      "city": "Changchun",
+      "countryCode": "CN",
+      "region": "China"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "Instagram",
+        "username": "Tao___Yu",
+        "url": "https://www.instagram.com/tao___yu/"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
-    }
-  ],
-  "volunteer": [
+      "name": "Jilin Zhishi Technology Company",
+      "position": "General Manager",
+      // "url": "https://example.com",
+      "startDate": "2020-12-01",
+      "endDate": "Now",
+      "summary": "A general manager",
+      "highlights": ["None"]
+    },
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "name": "Jilin Liwang Experimental Primary School",
+      "position": "The Teacher in charge of the Information Technology Competition",
+      // "url": "https://example.com",
+      "startDate": "2017-08-30",
+      "endDate": "2020-12-01",
+      "summary": "A teacher",
+      "highlights": ["IoT"]
     }
   ],
+  // "volunteer": [
+  //   {
+  //     "organization": "People's Climate March",
+  //     "location": "Zurich, Switzerland",
+  //     "position": "Lead Organizer",
+  //     "url": "https://example.com",
+  //     "startDate": "2014-04-01",
+  //     "endDate": "2015-07-01",
+  //     "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
+  //     "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+  //   }
+  // ],
   "education": [
     {
       "institution": "University of Zurich, Zurich, Switzerland",
@@ -54,8 +63,8 @@
       "studyType": "PhD",
       "startDate": "1905-01-01",
       "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "Tutor": "10",
+      "Major": ["Theory of Relativity"]
     }
   ],
   "awards": [
