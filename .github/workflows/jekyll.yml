@@ -67,68 +67,60 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Filter changed files
-        id: filter
-        uses: dorny/paths-filter@v2
+      # 1. 缓存 Ruby gems
+      - name: Cache Ruby gems
+        uses: actions/cache@v3
         with:
-          filters: |
-            notebooks:
-              - 'assets/jupyter/**'
-            images:
-              - 'assets/img/**'
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      # 2. 缓存 pip 包
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2'     # 或从 .ruby-version 读取
-          bundler-cache: true     # 自动安装并缓存 gems
-          cache-version: 0
+          ruby-version: '3.2'
+          bundler-cache: false   # 我们自己缓存，不用内置
 
-      # 只有当 notebooks 或 images 有改动，才安装额外包
-      - name: Install Jupyter & ImageMagick
-        if: steps.filter.outputs.notebooks == 'true' || steps.filter.outputs.images == 'true'
+      # 3. 安装系统包（每次都得做，但很快）
+      - name: Install OS packages for Jupyter & ImageMagick
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick python3 python3-pip
-          pip3 install jupyter
+
+      # 4. 只在 pip 缓存 miss 时才重装
+      - name: Install Jupyter
+        run: pip3 install --upgrade pip && pip3 install jupyter
+        # 由于 pip 缓存了 ~/.cache/pip，所以只有 requirements.txt 或环境变化时才慢
+
+      # 5. 只在 gems 缓存 miss 时才重装
+      - name: Install Gems
+        run: |
+          bundle config set path vendor/bundle
+          bundle install --jobs 4 --retry 3
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
 
-      # - name: Build with Jekyll
-      #   env:
-      #     JEKYLL_ENV: production
-      #   run: |
-      #     # 如果 notebooks 没改，则跳过 jekyll-jupyter-notebook 插件
-      #     if [ "${{ steps.filter.outputs.notebooks }}" != "true" ]; then
-      #       bundle exec jekyll build \
-      #         --baseurl "${{ steps.pages.outputs.base_path }}" \
-      #         --skip-plugins jekyll-jupyter-notebook
-      #     else
-      #       bundle exec jekyll build \
-      #         --baseurl "${{ steps.pages.outputs.base_path }}"
-      #     fi
-          
-
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
           BASEURL: ${{ steps.pages.outputs.base_path }}
-          NOTEBOOKS_CHANGED: ${{ steps.filter.outputs.notebooks }}
-        run: |
-          # 如果 notebooks 没改，就设置环境变量跳过这个插件
-          if [ "$NOTEBOOKS_CHANGED" != "true" ]; then
-            export JEKYLL_SKIP_PLUGINS="jekyll-jupyter-notebook"
-          fi
+        run: bundle exec jekyll build --baseurl "$BASEURL"
 
-          # 最终执行构建
-          bundle exec jekyll build --baseurl "$BASEURL"
-
-
-    
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+
 
   # Deployment job
   deploy:
