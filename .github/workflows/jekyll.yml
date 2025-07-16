@@ -96,20 +96,33 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      # - name: Build with Jekyll
+      #   env:
+      #     JEKYLL_ENV: production
+      #   run: |
+      #     # 如果 notebooks 没改，则跳过 jekyll-jupyter-notebook 插件
+      #     if [ "${{ steps.filter.outputs.notebooks }}" != "true" ]; then
+      #       bundle exec jekyll build \
+      #         --baseurl "${{ steps.pages.outputs.base_path }}" \
+      #         --skip-plugins jekyll-jupyter-notebook
+      #     else
+      #       bundle exec jekyll build \
+      #         --baseurl "${{ steps.pages.outputs.base_path }}"
+      #     fi
+          
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
         run: |
-          # 如果 notebooks 没改，则跳过 jekyll-jupyter-notebook 插件
-          if [ "${{ steps.filter.outputs.notebooks }}" != "true" ]; then
-            bundle exec jekyll build \
-              --baseurl "${{ steps.pages.outputs.base_path }}" \
-              --skip-plugins jekyll-jupyter-notebook
+          NOTEBOOKS_CHANGED="${{ steps.filter.outputs.notebooks }}"
+          BASEURL="${{ steps.pages.outputs.base_path }}"
+          if [ "$NOTEBOOKS_CHANGED" != "true" ]; then
+            bundle exec jekyll build --baseurl "$BASEURL" --skip-plugins jekyll-jupyter-notebook
           else
-            bundle exec jekyll build \
-              --baseurl "${{ steps.pages.outputs.base_path }}"
+            bundle exec jekyll build --baseurl "$BASEURL"
           fi
 
+    
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
