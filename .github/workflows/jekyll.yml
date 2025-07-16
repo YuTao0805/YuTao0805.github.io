@@ -110,17 +110,21 @@ jobs:
       #         --baseurl "${{ steps.pages.outputs.base_path }}"
       #     fi
           
+
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
+          BASEURL: ${{ steps.pages.outputs.base_path }}
+          NOTEBOOKS_CHANGED: ${{ steps.filter.outputs.notebooks }}
         run: |
-          NOTEBOOKS_CHANGED="${{ steps.filter.outputs.notebooks }}"
-          BASEURL="${{ steps.pages.outputs.base_path }}"
+          # 如果 notebooks 没改，就设置环境变量跳过这个插件
           if [ "$NOTEBOOKS_CHANGED" != "true" ]; then
-            bundle exec jekyll build --baseurl "$BASEURL" --skip-plugins jekyll-jupyter-notebook
-          else
-            bundle exec jekyll build --baseurl "$BASEURL"
+            export JEKYLL_SKIP_PLUGINS="jekyll-jupyter-notebook"
           fi
+
+          # 最终执行构建
+          bundle exec jekyll build --baseurl "$BASEURL"
+
 
     
       - name: Upload artifact
