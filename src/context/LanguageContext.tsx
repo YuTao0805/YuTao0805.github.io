@@ -28,7 +28,7 @@ export const translations: any = {
       en: "Multimodal Large Models, Graph Neural Networks, AI Agent Deployment"
     },
     init_contact: { zh: "联系我", en: "Contact Me" },
-    view_pub: { zh: "学术成果", en: "Publications" },
+    view_pub: { zh: "CV下载", en: "Download CV" },
   },
   sections: {
     education: { zh: "教育经历", en: "Education" },

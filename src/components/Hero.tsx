@@ -63,7 +63,7 @@ export const Hero = () => {
             
             <div className="flex flex-wrap gap-6 justify-center md:justify-start">
               <motion.a
-                href="mailto:yu@tao1995.cn"
+                href="#contact"
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 whileTap={{ scale: 0.95, boxShadow: '0px 0px 0px 0px #2d2d2d' }}
                 className="px-8 py-4 bg-white border-[3px] border-pencil text-pencil rounded-none hard-shadow font-heading text-xl hover:bg-marker-red hover:text-white transition-colors flex items-center gap-2"
@@ -72,7 +72,7 @@ export const Hero = () => {
                 <Mail className="w-5 h-5" strokeWidth={3} /> {t("hero.init_contact")}
               </motion.a>
               <motion.a
-                href="#publications"
+                href="/CV.pdf"
                 whileHover={{ scale: 1.05, rotate: -1 }}
                 whileTap={{ scale: 0.95, boxShadow: '0px 0px 0px 0px #2d2d2d' }}
                 className="px-8 py-4 bg-muted-paper border-[3px] border-pencil text-pencil rounded-none hard-shadow font-heading text-xl hover:bg-pen-blue hover:text-white transition-colors"

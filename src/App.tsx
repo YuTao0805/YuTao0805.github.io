@@ -34,7 +34,7 @@ const AppContent = () => {
         <Photos />
       </div>
 
-      <footer className="py-24 bg-white border-t-4 border-pencil border-dashed px-4">
+      <footer id="contact" className="py-24 bg-white border-t-4 border-pencil border-dashed px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
             <div className="col-span-1 md:col-span-2">
