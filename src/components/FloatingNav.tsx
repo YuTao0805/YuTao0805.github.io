@@ -82,12 +82,12 @@ export const FloatingNav = () => {
           <span className={cn("text-[10px]", language === "en" ? "text-pen-blue" : "text-pencil/40")}>EN</span>
         </button>
 
-        <button 
+        {/* <button 
           className="bg-pencil text-white text-xs font-heading px-4 py-2 hard-shadow-sm hover:bg-marker-red transition-colors uppercase tracking-widest"
           style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
         >
           <span>{t("nav.connect")}</span>
-        </button>
+        </button> */}
       </motion.nav>
     </AnimatePresence>
   );
