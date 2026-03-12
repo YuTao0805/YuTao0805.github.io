@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { Mail } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
-
+// import taoImg from '../img/tao.png';
 export const Hero = () => {
   const { t } = useLanguage();
 
@@ -29,8 +29,8 @@ export const Hero = () => {
             className="relative w-64 h-64 md:w-80 md:h-80 bg-white border-[3px] border-pencil hard-shadow-lg z-10 overflow-hidden"
             style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
           >
-            <img 
-              src="../img/tao.png" 
+              <img
+                src="/img/tao.png"
               alt={t("hero.name")}
               className="w-full h-full object-cover transition-all duration-700"
               referrerPolicy="no-referrer"
