@@ -48,37 +48,39 @@ export const Publications = () => {
   return (
     <section id="publications" className="py-32 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-20">
-          <div className="section-label">04 / Scientific_Publications</div>
-          <h2 className="text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">{t("sections.publications")}</h2>
-          <div className="h-1 w-24 bg-sky-500 rounded-full" />
+        <div className="mb-20 rotate-1">
+          <div className="font-heading text-marker-red text-sm mb-2 tracking-widest uppercase">04 / Scientific_Publications</div>
+          <h2 className="text-5xl md:text-6xl font-heading text-pencil mb-6 uppercase tracking-tight">{t("sections.publications")}</h2>
+          <div className="h-1.5 w-32 bg-pencil border-dashed border-b-2" />
         </div>
 
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-12">
           {publications.map((pub, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 20, rotate: idx % 2 === 0 ? 1 : -1 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-10 glass-card rounded-3xl hover:bg-white hover:shadow-2xl hover:shadow-sky-100 transition-all duration-500 group relative overflow-hidden"
+              className="p-10 bg-white border-[3px] border-pencil hard-shadow transition-all duration-300 group relative"
+              style={{ borderRadius: '15px 225px 15px 255px / 255px 15px 225px 15px' }}
             >
+              <div className="tape-decoration" />
               <div className="flex flex-col md:flex-row items-start gap-10">
-                <div className="p-6 bg-sky-50 border border-sky-100 rounded-2xl text-slate-400 group-hover:text-sky-500 group-hover:border-sky-200 transition-all duration-500">
-                  <FileText className="w-10 h-10" />
+                <div className="p-6 bg-muted-paper border-2 border-pencil wobbly text-pencil group-hover:bg-marker-red group-hover:text-white transition-colors">
+                  <FileText className="w-10 h-10" strokeWidth={3} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4 leading-tight uppercase tracking-tight group-hover:text-sky-600 transition-colors">{pub.title}</h3>
-                  <div className="inline-block px-4 py-1.5 bg-sky-50 border border-sky-100 text-sky-600 text-[10px] font-bold mb-8 uppercase tracking-widest rounded-full">
+                  <h3 className="text-2xl font-heading text-pencil mb-4 leading-tight tracking-tight group-hover:text-marker-red transition-colors">{pub.title}</h3>
+                  <div className="inline-block px-4 py-1.5 bg-muted-paper border-2 border-pencil text-pencil text-sm font-bold mb-8 uppercase tracking-widest wobbly-md rotate-1">
                     {pub.journal}
                   </div>
-                  <p className="text-slate-500 text-lg leading-relaxed mb-10 font-medium border-l-4 border-sky-100 pl-8">
+                  <p className="text-pencil text-xl leading-tight mb-10 font-bold border-l-4 border-pencil border-dashed pl-8 -rotate-1">
                     {pub.description[language]}
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {pub.tags.map((tag, i) => (
-                      <span key={i} className="px-3 py-1 bg-slate-100 text-slate-400 text-[10px] font-bold rounded-full border border-slate-200 uppercase tracking-widest">
+                      <span key={i} className="px-3 py-1 bg-paper border-2 border-pencil text-pencil text-xs font-bold wobbly-md">
                         {tag}
                       </span>
                     ))}

@@ -31,13 +31,13 @@ export const Experience = () => {
   return (
     <section id="experience" className="py-32 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-20">
-          <div className="section-label">02 / Professional_History</div>
-          <h2 className="text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">{t("sections.experience")}</h2>
-          <div className="h-1 w-24 bg-sky-500 rounded-full" />
+        <div className="mb-20 rotate-1">
+          <div className="font-heading text-marker-red text-sm mb-2 tracking-widest uppercase">02 / Professional_History</div>
+          <h2 className="text-5xl md:text-6xl font-heading text-pencil mb-6 uppercase tracking-tight">{t("sections.experience")}</h2>
+          <div className="h-1.5 w-32 bg-pencil border-dashed border-b-2" />
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-20">
           {experiences.map((exp, idx) => (
             <motion.div
               key={idx}
@@ -45,26 +45,27 @@ export const Experience = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="relative pl-16 border-l-2 border-slate-200"
+              className="relative pl-12 md:pl-20 border-l-4 border-pencil border-dashed"
             >
-              <div className="absolute left-[-11px] top-0 w-[20px] h-[20px] bg-white border-4 border-sky-500 rounded-full shadow-lg shadow-sky-100" />
+              <div className="absolute left-[-14px] top-0 w-[24px] h-[24px] bg-marker-red border-2 border-pencil rounded-full shadow-[2px_2px_0px_0px_#2d2d2d]" />
               
-              <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <h3 className="text-3xl font-bold text-slate-800 uppercase tracking-tight">{exp.company[language]}</h3>
-                <span className="text-xs text-slate-400 font-bold font-mono bg-white px-4 py-1.5 rounded-full border border-slate-100">{exp.period}</span>
+              <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <h3 className="text-3xl font-heading text-pencil uppercase tracking-tight">{exp.company[language]}</h3>
+                <span className="text-lg text-pencil font-bold bg-muted-paper px-4 py-1 border-2 border-pencil wobbly-md rotate-1">{exp.period}</span>
               </div>
               
-              <p className="text-sky-600 font-bold text-lg mb-8 tracking-tight uppercase">{exp.role[language]}</p>
+              <p className="text-pen-blue font-bold text-xl mb-8 tracking-tight uppercase -rotate-1 inline-block">{exp.role[language]}</p>
               
-              <div className="glass-card p-10 rounded-3xl mb-8">
-                <p className="text-slate-600 text-lg leading-relaxed font-medium">
+              <div className="bg-white border-[3px] border-pencil p-10 hard-shadow mb-10 rotate-1" style={{ borderRadius: '15px 225px 15px 255px / 255px 15px 225px 15px' }}>
+                <div className="tack-decoration" />
+                <p className="text-pencil text-xl leading-tight font-bold">
                   {exp.description[language]}
                 </p>
               </div>
               
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-4">
                 {exp.skills.map((skill, i) => (
-                  <span key={i} className="px-4 py-1.5 bg-sky-50 text-sky-600 text-[10px] font-bold rounded-full border border-sky-100 uppercase tracking-widest">
+                  <span key={i} className="px-4 py-1.5 bg-paper border-2 border-pencil text-pencil text-sm font-bold wobbly-md hover:bg-marker-red hover:text-white transition-colors">
                     {skill}
                   </span>
                 ))}

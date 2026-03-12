@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/src/lib/utils";
-import { Home, Briefcase, Trophy, History, Image as ImageIcon, Zap, Target, Languages } from "lucide-react";
+import { Home, Briefcase, Trophy, History, Image as ImageIcon, Zap, Target } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
 export const FloatingNav = () => {
@@ -41,21 +41,22 @@ export const FloatingNav = () => {
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <motion.nav
         initial={{ opacity: 0, y: -100 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-slate-200 rounded-full bg-white/80 backdrop-blur-xl z-[5000] pr-2 pl-6 py-2 items-center justify-center space-x-4 shadow-lg shadow-slate-200/50"
+          "flex max-w-fit fixed top-6 inset-x-0 mx-auto border-[3px] border-pencil bg-white z-[5000] pr-2 pl-6 py-2 items-center justify-center space-x-4 hard-shadow"
         )}
+        style={{ borderRadius: '15px 225px 15px 255px / 255px 15px 225px 15px' }}
       >
         {navItems.map((navItem, idx) => (
           <a
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative items-center flex space-x-1 text-slate-500 hover:text-accent transition-colors text-xs font-medium tracking-tight",
-              activeSection === navItem.link.substring(1) && "text-accent"
+              "relative items-center flex space-x-1 text-pencil/60 hover:text-marker-red transition-colors text-sm font-heading tracking-tight",
+              activeSection === navItem.link.substring(1) && "text-marker-red"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
@@ -63,26 +64,31 @@ export const FloatingNav = () => {
             {activeSection === navItem.link.substring(1) && (
               <motion.span
                 layoutId="active-pill"
-                className="absolute inset-x-0 -bottom-1 bg-accent h-0.5 rounded-full"
+                className="absolute inset-x-0 -bottom-1 bg-marker-red h-0.5 rounded-full"
               />
             )}
           </a>
         ))}
         
-        <div className="h-4 w-px bg-slate-200" />
+        <div className="h-4 w-px bg-pencil/20 border-dashed border-l" />
 
         <button 
           onClick={() => setLanguage(language === "zh" ? "en" : "zh")}
-          className="p-2 hover:bg-slate-100 rounded-full transition-colors text-slate-500"
+          className="flex items-center justify-center px-2 py-1 hover:bg-muted-paper rounded transition-colors text-pencil/60 group gap-1 font-heading"
           title="Toggle Language"
         >
-          <Languages className="w-4 h-4" />
+          <span className={cn("text-xs", language === "zh" ? "text-pen-blue" : "text-pencil/40")}>中</span>
+          <div className="w-px h-3 bg-pencil/20" />
+          <span className={cn("text-[10px]", language === "en" ? "text-pen-blue" : "text-pencil/40")}>EN</span>
         </button>
 
-        <button className="bg-slate-900 text-white text-[10px] font-bold px-4 py-2 rounded-full hover:bg-accent transition-colors uppercase tracking-widest">
+        <button 
+          className="bg-pencil text-white text-xs font-heading px-4 py-2 hard-shadow-sm hover:bg-marker-red transition-colors uppercase tracking-widest"
+          style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
+        >
           <span>{t("nav.connect")}</span>
         </button>
-      </motion.div>
+      </motion.nav>
     </AnimatePresence>
   );
 };

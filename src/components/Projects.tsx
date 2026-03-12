@@ -37,41 +37,43 @@ export const Projects = () => {
 
   return (
     <section id="projects" className="py-32 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-20">
-          <div className="section-label">03 / Engineering_Projects</div>
-          <h2 className="text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">{t("sections.projects")}</h2>
-          <div className="h-1 w-24 bg-sky-500 rounded-full" />
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-20 rotate-1">
+          <div className="font-heading text-marker-red text-sm mb-2 tracking-widest uppercase">03 / Engineering_Projects</div>
+          <h2 className="text-5xl md:text-6xl font-heading text-pencil mb-6 uppercase tracking-tight">{t("sections.projects")}</h2>
+          <div className="h-1.5 w-32 bg-pencil border-dashed border-b-2" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 20, rotate: idx % 2 === 0 ? -1 : 1 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group glass-card rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-sky-100 transition-all duration-500"
+              className="group bg-white border-[3px] border-pencil hard-shadow overflow-hidden transition-all duration-300 relative"
+              style={{ borderRadius: '15px 225px 15px 255px / 255px 15px 225px 15px' }}
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="tack-decoration" />
+              <div className="relative h-56 overflow-hidden border-b-[3px] border-pencil">
                 <img
                   src={project.image}
                   alt={project.title[language]}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-sky-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               
-              <div className="p-10">
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 uppercase tracking-tight group-hover:text-sky-600 transition-colors">{project.title[language]}</h3>
-                <p className="text-slate-500 text-sm mb-8 line-clamp-3 leading-relaxed font-medium">
+              <div className="p-8">
+                <h3 className="text-2xl font-heading text-pencil mb-4 tracking-tight group-hover:text-marker-red transition-colors">{project.title[language]}</h3>
+                <p className="text-pencil text-lg mb-8 line-clamp-3 leading-tight font-bold">
                   {project.description[language]}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-slate-100 text-slate-500 text-[10px] font-bold rounded-full border border-slate-200 uppercase tracking-widest">
+                    <span key={i} className="px-3 py-1 bg-muted-paper border-2 border-pencil text-pencil text-xs font-bold wobbly-md">
                       {tag}
                     </span>
                   ))}

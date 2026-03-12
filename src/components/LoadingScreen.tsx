@@ -20,6 +20,7 @@ export const LoadingScreen: React.FC = () => {
       if (nextProgress < 100) {
         requestAnimationFrame(animate);
       } else {
+        console.log("Loading complete, hiding screen...");
         setTimeout(() => setIsVisible(false), 800);
       }
     };
@@ -31,7 +32,7 @@ export const LoadingScreen: React.FC = () => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <motion.section
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -72,7 +73,7 @@ export const LoadingScreen: React.FC = () => {
               想象中。。。
             </motion.p>
           </div>
-        </motion.div>
+        </motion.section>
       )}
     </AnimatePresence>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Code2, Globe, Cpu, Languages, Lightbulb, Wrench, Heart } from "lucide-react";
+import { Code2, Globe, Cpu, Languages, Lightbulb, Wrench } from "lucide-react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
 const skillGroups = [
@@ -41,32 +41,34 @@ export const Skills = () => {
 
   return (
     <section id="skills" className="py-32 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-20 text-center">
-          <div className="section-label">05 / Technical_Stack</div>
-          <h2 className="text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">{t("sections.skills")}</h2>
-          <div className="h-1 w-24 bg-sky-500 mx-auto rounded-full" />
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-20 text-center rotate-1">
+          <div className="font-heading text-marker-red text-sm mb-2 tracking-widest uppercase">05 / Technical_Stack</div>
+          <h2 className="text-5xl md:text-6xl font-heading text-pencil mb-6 uppercase tracking-tight">{t("sections.skills")}</h2>
+          <div className="h-1.5 w-32 bg-pencil border-dashed border-b-2 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {skillGroups.map((group, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20, rotate: idx % 2 === 0 ? 1 : -1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="p-10 bg-slate-50 border border-slate-100 rounded-3xl hover:bg-white hover:shadow-2xl hover:shadow-sky-100 transition-all duration-500 group relative overflow-hidden"
+              className="p-10 bg-white border-[3px] border-pencil hard-shadow transition-all duration-300 group relative"
+              style={{ borderRadius: '30px 10px 25px 12px / 12px 25px 10px 30px' }}
             >
-              <div className="flex items-center gap-6 mb-10 text-sky-500">
-                <div className="p-4 bg-white shadow-sm rounded-2xl group-hover:bg-sky-500 group-hover:text-white transition-all duration-500">
-                  {group.icon}
+              <div className="flex items-center gap-6 mb-10">
+                <div className="p-4 bg-muted-paper border-2 border-pencil wobbly group-hover:bg-marker-red group-hover:text-white transition-colors">
+                  {React.cloneElement(group.icon as React.ReactElement, { strokeWidth: 3 })}
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 uppercase tracking-widest">{group.title[language]}</h3>
+                <h3 className="text-xl font-heading text-pencil uppercase tracking-tight">{group.title[language]}</h3>
               </div>
               <div className="flex flex-wrap gap-3">
                 {group.skills.map((skill, i) => (
-                  <span key={i} className="px-4 py-1.5 bg-white text-slate-500 text-[10px] font-bold rounded-full border border-slate-100 uppercase tracking-widest group-hover:border-sky-100 group-hover:text-sky-600 transition-colors">
+                  <span key={i} className="px-4 py-1.5 bg-paper border-2 border-pencil text-pencil text-sm font-bold wobbly-md group-hover:border-pen-blue group-hover:text-pen-blue transition-colors">
                     {skill}
                   </span>
                 ))}

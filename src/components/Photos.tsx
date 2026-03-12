@@ -19,7 +19,7 @@ export const Photos = () => {
       <div className="max-w-6xl mx-auto">
         <div className="mb-20 text-center">
           <div className="section-label">06 / Visual_Archive</div>
-          <h2 className="text-5xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">{t("sections.photos")}</h2>
+          <h2 className="text-5xl font-extrabold text-[var(--color-text-main)] dark:text-[var(--color-dark-text)] mb-6 uppercase tracking-tight">{t("sections.photos")}</h2>
           <div className="h-1 w-24 bg-sky-500 mx-auto rounded-full" />
         </div>
 
@@ -31,7 +31,7 @@ export const Photos = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.05 }}
-              className="relative group rounded-3xl overflow-hidden cursor-crosshair border border-slate-200 shadow-sm"
+              className="relative group rounded-3xl overflow-hidden cursor-crosshair border border-slate-200 dark:border-slate-800 shadow-sm"
             >
               <img
                 src={photo.url}

@@ -11,21 +11,20 @@ import { Projects } from "./components/Projects";
 import { Publications } from "./components/Publications";
 import { Skills } from "./components/Skills";
 import { Photos } from "./components/Photos";
-import { NeuronBackground } from "./components/NeuronBackground";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Github, Twitter, Linkedin, Mail, Phone, Globe } from "lucide-react";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
+import { motion } from "motion/react";
 
 const AppContent = () => {
   const { t } = useLanguage();
 
   return (
-    <main className="bg-slate-50 min-h-screen selection:bg-sky-500/30 selection:text-sky-600 relative">
+    <main className="bg-paper min-h-screen selection:bg-marker-red/20 selection:text-marker-red relative">
       <LoadingScreen />
-      <NeuronBackground />
       <FloatingNav />
       
-      <div className="relative z-10">
+      <div className="relative z-10 font-bold text-[20px]">
         <Hero />
         <Education />
         <Experience />
@@ -35,55 +34,60 @@ const AppContent = () => {
         <Photos />
       </div>
 
-      <footer className="py-24 bg-white border-t border-slate-100 px-4">
-        <div className="max-w-6xl mx-auto">
+      <footer className="py-24 bg-white border-t-4 border-pencil border-dashed px-4">
+        <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
             <div className="col-span-1 md:col-span-2">
-              <h3 className="text-4xl font-extrabold text-slate-900 mb-6 uppercase tracking-tight">于 涛 <span className="text-sky-500">Yu Tao</span></h3>
-              <p className="text-slate-500 max-w-md mb-10 text-lg font-medium leading-relaxed">
+              <h3 className="text-5xl font-heading text-pencil mb-6 tracking-tight">于 涛 <span className="text-pen-blue">Yu Tao</span></h3>
+              <p className="text-pencil max-w-md mb-10 text-xl font-bold leading-relaxed -rotate-1">
                 {t("footer.tagline")}
               </p>
               <div className="flex gap-6">
-                <a href="#" className="p-3 bg-slate-50 rounded-2xl text-slate-400 hover:text-sky-500 hover:bg-sky-50 transition-all hover:scale-110">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="#" className="p-3 bg-slate-50 rounded-2xl text-slate-400 hover:text-sky-500 hover:bg-sky-50 transition-all hover:scale-110">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href="mailto:eu@" className="p-3 bg-slate-50 rounded-2xl text-slate-400 hover:text-sky-500 hover:bg-sky-50 transition-all hover:scale-110">
-                  <Mail className="w-6 h-6" />
-                </a>
+                {[
+                  { icon: <Github className="w-6 h-6" />, href: "#" },
+                  { icon: <Linkedin className="w-6 h-6" />, href: "#" },
+                  { icon: <Mail className="w-6 h-6" />, href: "mailto:id8670@alunos.uminho.pt" }
+                ].map((social, i) => (
+                  <motion.a 
+                    key={i}
+                    href={social.href} 
+                    whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 5 : -5 }}
+                    className="p-4 bg-muted-paper border-2 border-pencil wobbly hard-shadow-sm text-pencil hover:bg-marker-red hover:text-white transition-colors"
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
               </div>
             </div>
             
-            <div>
-              <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">{t("footer.contact")}</h4>
-              <ul className="space-y-4 text-slate-500 text-sm font-medium">
+            <div className="rotate-1">
+              <h4 className="text-pencil font-heading mb-8 uppercase tracking-widest text-lg">{t("footer.contact")}</h4>
+              <ul className="space-y-4 text-pencil text-lg font-bold">
                 <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-sky-500" /> 1******
+                  <Phone className="w-4 h-4 text-marker-red" /> +351 *********
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-sky-500" /> eu@
+                  <Mail className="w-4 h-4 text-marker-red" /> id8670@alunos.uminho.pt
                 </li>
                 <li className="flex items-center gap-3">
-                  <Globe className="w-4 h-4 text-sky-500" /> www
+                  <Globe className="w-4 h-4 text-marker-red" /> alg.uminho.pt
                 </li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-slate-900 font-bold mb-8 uppercase tracking-widest text-xs">{t("footer.links")}</h4>
-              <ul className="space-y-4 text-slate-500 text-sm font-medium">
-                <li><a href="#education" className="hover:text-sky-500 transition-colors">{t("nav.education")}</a></li>
-                <li><a href="#experience" className="hover:text-sky-500 transition-colors">{t("nav.experience")}</a></li>
-                <li><a href="#publications" className="hover:text-sky-500 transition-colors">{t("nav.publications")}</a></li>
-                <li><a href="#skills" className="hover:text-sky-500 transition-colors">{t("nav.skills")}</a></li>
+            <div className="-rotate-1">
+              <h4 className="text-pencil font-heading mb-8 uppercase tracking-widest text-lg">{t("footer.links")}</h4>
+              <ul className="space-y-4 text-pencil text-lg font-bold">
+                <li><a href="#education" className="hover:text-marker-red transition-colors underline decoration-dashed underline-offset-4">{t("nav.education")}</a></li>
+                <li><a href="#experience" className="hover:text-marker-red transition-colors underline decoration-dashed underline-offset-4">{t("nav.experience")}</a></li>
+                <li><a href="#publications" className="hover:text-marker-red transition-colors underline decoration-dashed underline-offset-4">{t("nav.publications")}</a></li>
+                <li><a href="#skills" className="hover:text-marker-red transition-colors underline decoration-dashed underline-offset-4">{t("nav.skills")}</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="pt-10 border-t border-slate-100 text-center">
-            <p className="text-slate-400 text-xs font-bold uppercase tracking-widest">© 2026 于涛 Yu Tao. {t("footer.rights")}</p>
+          <div className="pt-10 border-t-2 border-pencil border-dashed text-center">
+            <p className="text-pencil/40 text-sm font-bold uppercase tracking-widest font-heading">© 2026 于涛 Yu Tao. {t("footer.rights")}</p>
           </div>
         </div>
       </footer>

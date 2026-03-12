@@ -24,11 +24,11 @@ export const translations: any = {
     role: { zh: "电子与计算机工程博士（26届）", en: "PhD in Electronic and Computer Engineering ('26)" },
     name: { zh: "于 涛", en: "Yu Tao" },
     bio: { 
-      zh: "我目前在葡萄牙米尼奥大学 Centro Algoritmi 攻读博士，研究聚焦多模态表示学习与可落地的智能决策。我提出对齐感知的证据可靠性建模方法，将不一致与噪声显式转化为可靠性权重。代表性工作包括图增强预训练语言模型 GEML，以及面向教育场景的多模态证据驱动分组。我擅长把多模态、图学习与优化决策等前沿方法工程化为可评估可迭代的系统，面向真实约束输出可部署的智能方案。",
-      en: "I am currently a PhD candidate at Centro Algoritmi, University of Minho, focusing on multimodal representation learning and actionable intelligent decision-making. I proposed alignment-aware evidence reliability modeling to explicitly transform inconsistency and noise into reliability weights. Representative works include GEML (Graph-enhanced Pre-trained Language Model) and multimodal evidence-driven grouping for educational scenarios. I excel at engineering cutting-edge methods into evaluable systems for real-world deployment."
+      zh: "多模态大模型，图神经网络，AI Agent部署",
+      en: "Multimodal Large Models, Graph Neural Networks, AI Agent Deployment"
     },
-    init_contact: { zh: "联系我", en: "INITIALIZE_CONTACT" },
-    view_pub: { zh: "学术成果", en: "VIEW_PUBLICATIONS" },
+    init_contact: { zh: "联系我", en: "Contact Me" },
+    view_pub: { zh: "学术成果", en: "Publications" },
   },
   sections: {
     education: { zh: "教育经历", en: "Education" },

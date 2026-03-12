@@ -1,44 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=ZCOOL+KuaiLe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Patrick+Hand&family=ZCOOL+KuaiLe&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-cartoon: "ZCOOL KuaiLe", cursive;
+  --font-sans: "Patrick Hand", "ZCOOL KuaiLe", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Kalam", "ZCOOL KuaiLe", cursive;
   
-  --color-accent: #0ea5e9; /* Sky Blue */
-  --color-accent-soft: #e0f2fe;
-  --color-bg-light: #f8fafc;
-  --color-text-main: #1e293b;
-  --color-text-muted: #64748b;
-  --color-border-subtle: rgba(15, 23, 42, 0.05);
+  --color-paper: #fdfbf7;
+  --color-pencil: #2d2d2d;
+  --color-muted-paper: #e5e0d8;
+  --color-marker-red: #ff4d4d;
+  --color-pen-blue: #2d5da1;
 }
 
 @layer base {
   body {
-    @apply bg-[var(--color-bg-light)] text-[var(--color-text-main)] font-sans;
+    @apply bg-paper text-pencil font-sans antialiased;
+    background-image: radial-gradient(#e5e0d8 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
   h1, h2, h3, h4 {
-    @apply text-slate-900 tracking-tight font-bold;
-  }
-
-  .tech-grid {
-    background-image: 
-      linear-gradient(to right, rgba(14, 165, 233, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+    @apply font-heading text-pencil;
   }
 }
 
-.glass-card {
-  @apply bg-white/70 backdrop-blur-md border border-white shadow-sm;
+.wobbly {
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
 }
 
-.glow-text {
-  text-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+.wobbly-md {
+  border-radius: 30px 10px 25px 12px / 12px 25px 10px 30px;
 }
 
-.section-label {
-  @apply text-accent font-mono text-[10px] mb-2 tracking-[0.4em] uppercase font-bold;
+.hard-shadow {
+  box-shadow: 4px 4px 0px 0px #2d2d2d;
+}
+
+.hard-shadow-lg {
+  box-shadow: 8px 8px 0px 0px #2d2d2d;
+}
+
+.hard-shadow-sm {
+  box-shadow: 2px 2px 0px 0px #2d2d2d;
+}
+
+.tape-decoration {
+  @apply absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-6 bg-slate-400/30 -rotate-2 z-20;
+}
+
+.tack-decoration {
+  @apply absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-marker-red rounded-full shadow-sm z-20;
 }
