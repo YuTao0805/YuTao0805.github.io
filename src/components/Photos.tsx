@@ -3,12 +3,13 @@ import { motion } from "motion/react";
 import { useLanguage } from "@/src/context/LanguageContext";
 
 const photos = [
-  { url: "https://picsum.photos/seed/p1/800/1000", title: { zh: "城市光影", en: "Urban Light" } },
-  { url: "https://picsum.photos/seed/p2/800/600", title: { zh: "自然之息", en: "Nature Breath" } },
-  { url: "https://picsum.photos/seed/p3/800/800", title: { zh: "极简主义", en: "Minimalism" } },
-  { url: "https://picsum.photos/seed/p4/800/600", title: { zh: "代码人生", en: "Code Life" } },
-  { url: "https://picsum.photos/seed/p5/800/1200", title: { zh: "远方旅途", en: "Long Journey" } },
-  { url: "https://picsum.photos/seed/p6/800/700", title: { zh: "日常瞬间", en: "Daily Moments" } },
+  { url: "./0.jpg", title: { zh: "国际学校", en: "International School" } },
+  { url: "./1.jpg", title: { zh: "iCAN", en: "iCAN" } },
+  { url: "./2.jpg", title: { zh: "创造大赛", en: "Innovation Contest" } },
+  { url: "./3.jpg", title: { zh: "芬兰参观", en: "Finland Visit" } },
+  { url: "./4.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
+  { url: "./5.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
+  { url: "./6.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
 ];
 
 export const Photos = () => {

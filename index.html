@@ -16,11 +16,32 @@
   </head>
   <body>
     <div id="root">
-      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: #666;">
+      <section class="fixed inset-0 z-[9999] bg-sky-500 flex flex-col items-center justify-center overflow-hidden">
+        <div class="relative w-full flex flex-col items-center max-w-2xl px-4">
+          <div class="relative mb-2 select-none">
+            <h1 class="text-slate-700/40 text-xl md:text-3xl font-cartoon text-center whitespace-nowrap">现实有限，想象无边。</h1>
+            <div style="position:absolute;top:0;left:0;overflow:hidden;width:50%;">
+              <h1 class="text-white text-xl md:text-3xl font-cartoon text-center whitespace-nowrap">现实有限，想象无边。</h1>
+            </div>
+          </div>
+
+          <div class="w-full h-[1px] bg-white/20 relative overflow-hidden" style="max-width:400px;">
+            <div style="position:absolute;top:0;left:0;height:100%;width:50%;background:white;box-shadow:0 0 10px rgba(255,255,255,0.8);"></div>
+          </div>
+
+          <p class="text-white/60 text-sm font-cartoon mt-2 tracking-widest">想象中。。。</p>
+        </div>
+      </section>
+    </div>
+    <script type="module" src="src/main.tsx"></script>
+  </body>
+</html>
+      <!-- <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: #666;">
         正在加载应用... (Loading Application...)
       </div>
     </div>
     <script type="module" src="src/main.tsx"></script>
   </body>
-</html>
+</html> -->
 
+ 

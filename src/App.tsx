@@ -13,7 +13,8 @@ import { Skills } from "./components/Skills";
 import { Photos } from "./components/Photos";
 import { MathBackground } from "./components/MathBackground";
 import { LoadingScreen } from "./components/LoadingScreen";
-import { Github, Twitter, Linkedin, Mail, Phone, Globe, Instagram } from "lucide-react";
+import { Fa500Px } from "react-icons/fa";
+import { Github, Twitter, Linkedin, Mail, Phone, Globe, Instagram, PickaxeIcon } from "lucide-react";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { motion } from "motion/react";
 
@@ -48,7 +49,8 @@ const AppContent = () => {
                 {[
                   { icon: <Instagram className="w-6 h-6" />, href: "https://www.instagram.com/tao___yu/" },
                   { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/yutao0805" },
-                  { icon: <Mail className="w-6 h-6" />, href: "mailto:yu@tao1995.cn" }
+                  { icon: <Fa500Px size={24} />, href: "https://500px.com.cn/tao0805/set?setType=p" }
+                  // <i class="fa fa-500px" aria-hidden="true"></i>
                 ].map((social, i) => (
                   <motion.a 
                     key={i}

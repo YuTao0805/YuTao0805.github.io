@@ -9,13 +9,13 @@ export const FloatingNav = () => {
   const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
-    { name: t("nav.home"), link: "#home", icon: <Home className="w-4 h-4" /> },
-    { name: t("nav.education"), link: "#education", icon: <History className="w-4 h-4" /> },
-    { name: t("nav.experience"), link: "#experience", icon: <Briefcase className="w-4 h-4" /> },
-    { name: t("nav.projects"), link: "#projects", icon: <Target className="w-4 h-4" /> },
-    { name: t("nav.publications"), link: "#publications", icon: <Trophy className="w-4 h-4" /> },
-    { name: t("nav.skills"), link: "#skills", icon: <Zap className="w-4 h-4" /> },
-    { name: t("nav.photos"), link: "#photos", icon: <ImageIcon className="w-4 h-4" /> },
+    { name: t("nav.home"), link: "#home", icon: <Home className="w-5 h-5" /> },
+    { name: t("nav.education"), link: "#education", icon: <History className="w-5 h-5" /> },
+    { name: t("nav.experience"), link: "#experience", icon: <Briefcase className="w-5 h-5" /> },
+    { name: t("nav.projects"), link: "#projects", icon: <Target className="w-5 h-5" /> },
+    { name: t("nav.publications"), link: "#publications", icon: <Trophy className="w-5 h-5" /> },
+    { name: t("nav.skills"), link: "#skills", icon: <Zap className="w-5 h-5" /> },
+    { name: t("nav.photos"), link: "#photos", icon: <ImageIcon className="w-5 h-5" /> },
   ];
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export const FloatingNav = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.2 }}
         className={cn(
-          "flex max-w-fit fixed top-6 inset-x-0 mx-auto border-[3px] border-pencil bg-white z-[5000] pr-2 pl-6 py-2 items-center justify-center space-x-4 hard-shadow"
+          "flex max-w-fit fixed top-6 inset-x-0 mx-auto border-[4px] border-pencil bg-white z-[5000] pr-4 pl-8 py-3 items-center justify-center space-x-5 hard-shadow"
         )}
         style={{ borderRadius: '15px 225px 15px 255px / 255px 15px 225px 15px' }}
       >
@@ -55,7 +55,7 @@ export const FloatingNav = () => {
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative items-center flex space-x-1 text-pencil/60 hover:text-marker-red transition-colors text-sm font-heading tracking-tight",
+              "relative items-center flex space-x-2 text-pencil/60 hover:text-marker-red transition-colors text-base font-heading tracking-tight",
               activeSection === navItem.link.substring(1) && "text-marker-red"
             )}
           >
@@ -64,7 +64,7 @@ export const FloatingNav = () => {
             {activeSection === navItem.link.substring(1) && (
               <motion.span
                 layoutId="active-pill"
-                className="absolute inset-x-0 -bottom-1 bg-marker-red h-0.5 rounded-full"
+                className="absolute inset-x-0 -bottom-1 bg-marker-red h-1 rounded-full"
               />
             )}
           </a>
@@ -74,13 +74,13 @@ export const FloatingNav = () => {
 
         <button 
           onClick={() => setLanguage(language === "zh" ? "en" : "zh")}
-          className="flex items-center justify-center px-2 py-1 hover:bg-muted-paper rounded transition-colors text-pencil/60 group gap-1 font-heading"
+          className="flex items-center justify-center px-3 py-2 hover:bg-muted-paper rounded transition-colors text-pencil/60 group gap-2 font-heading"
           title="Toggle Language"
           style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
         >
-          <span className={cn("text-xs", language === "zh" ? "text-pen-blue" : "text-pencil/40")}>中</span>
-          <div className="w-px h-3 bg-pencil/20" />
-          <span className={cn("text-[10px]", language === "en" ? "text-pen-blue" : "text-pencil/40")}>EN</span>
+          <span className={cn("text-sm", language === "zh" ? "text-pen-blue" : "text-pencil/40")}>中</span>
+          <div className="w-px h-4 bg-pencil/20" />
+          <span className={cn("text-xs", language === "en" ? "text-pen-blue" : "text-pencil/40")}>EN</span>
         </button>
 
         {/* <button 

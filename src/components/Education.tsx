@@ -9,21 +9,24 @@ const education = [
     degree: { zh: "电子与计算机工程 博士研究生", en: "PhD in Electronic and Computer Engineering" },
     period: "2019 - 2026",
     lab: { zh: "算法中心 (Centro ALGORITMI)", en: "Centro ALGORITMI" },
-    focus: { zh: "图神经网络，大模型，多模态大模型", en: "GNN, LLM, Multimodal Models" }
+    focus: { zh: "图神经网络，大模型，多模态大模型", en: "GNN, LLM, Multimodal Models" },
+    logo: "/minho.png"
   },
   {
     school: { zh: "日本高知工科大学", en: "Kochi University of Technology" },
     degree: { zh: "人机交互 硕士研究生", en: "Master in Human-Computer Interaction" },
     period: "2019 - 2021",
     lab: { zh: "人机交互技术研究所 (CHEC)", en: "CHEC" },
-    focus: { zh: "人机交互，VR/AR开发", en: "HCI, VR/AR Development" }
+    focus: { zh: "人机交互，VR/AR开发", en: "HCI, VR/AR Development" },
+    logo: "/kochi.png"
   },
   {
     school: { zh: "吉林大学", en: "Jilin University" },
     degree: { zh: "软件工程 硕士研究生", en: "Master in Software Engineering" },
     period: "2015 - 2018",
     lab: { zh: "以人为中心人工智能实验室 (HAI)", en: "HAI Lab" },
-    focus: { zh: "智慧教育，游戏化，个性化教育", en: "Smart Education, Gamification" }
+    focus: { zh: "智慧教育，游戏化，个性化教育", en: "Smart Education, Gamification" },
+    logo: "/jilin.png"
   }
 ];
 
@@ -52,8 +55,17 @@ export const Education = () => {
             >
               <div className="tape-decoration" />
               <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="p-5 bg-muted-paper border-2 border-pencil wobbly text-pencil group-hover:bg-marker-red group-hover:text-white transition-colors">
-                  <GraduationCap className="w-8 h-8" strokeWidth={3} />
+                <div className="p-4 bg-muted-paper border-2 border-pencil wobbly text-pencil group-hover:bg-marker-red group-hover:text-white transition-colors flex items-center justify-center overflow-hidden w-20 h-20 shrink-0">
+                  {edu.logo ? (
+                    <img 
+                      src={edu.logo} 
+                      alt={edu.school[language]} 
+                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <GraduationCap className="w-8 h-8" strokeWidth={3} />
+                  )}
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
