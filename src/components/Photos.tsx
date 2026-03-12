@@ -19,7 +19,7 @@ export const Photos = () => {
     <section id="photos" className="py-32 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="mb-20 text-center">
-          <div className="section-label">06 / Visual_Archive</div>
+          <div className="font-heading text-marker-red text-sm mb-2 tracking-widest uppercase">06 / Visual_Archive</div>
           <h2 className="text-5xl font-extrabold text-[var(--color-text-main)] dark:text-[var(--color-dark-text)] mb-6 uppercase tracking-tight">{t("sections.photos")}</h2>
           <div className="h-1 w-24 bg-sky-500 mx-auto rounded-full" />
         </div>
