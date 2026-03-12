@@ -76,6 +76,7 @@ export const FloatingNav = () => {
           onClick={() => setLanguage(language === "zh" ? "en" : "zh")}
           className="flex items-center justify-center px-2 py-1 hover:bg-muted-paper rounded transition-colors text-pencil/60 group gap-1 font-heading"
           title="Toggle Language"
+          style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
         >
           <span className={cn("text-xs", language === "zh" ? "text-pen-blue" : "text-pencil/40")}>中</span>
           <div className="w-px h-3 bg-pencil/20" />
