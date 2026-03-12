@@ -12,7 +12,7 @@ import { Publications } from "./components/Publications";
 import { Skills } from "./components/Skills";
 import { Photos } from "./components/Photos";
 import { LoadingScreen } from "./components/LoadingScreen";
-import { Github, Twitter, Linkedin, Mail, Phone, Globe } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, Phone, Globe, Instagram } from "lucide-react";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { motion } from "motion/react";
 
@@ -44,9 +44,9 @@ const AppContent = () => {
               </p>
               <div className="flex gap-6">
                 {[
-                  { icon: <Github className="w-6 h-6" />, href: "#" },
-                  { icon: <Linkedin className="w-6 h-6" />, href: "#" },
-                  { icon: <Mail className="w-6 h-6" />, href: "mailto:id8670@alunos.uminho.pt" }
+                  { icon: <Instagram className="w-6 h-6" />, href: "https://www.instagram.com/tao___yu/" },
+                  { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/yutao0805" },
+                  { icon: <Mail className="w-6 h-6" />, href: "mailto:yu@tao1995.cn" }
                 ].map((social, i) => (
                   <motion.a 
                     key={i}
@@ -64,7 +64,7 @@ const AppContent = () => {
               <h4 className="text-pencil font-heading mb-8 uppercase tracking-widest text-lg">{t("footer.contact")}</h4>
               <ul className="space-y-4 text-pencil text-lg font-bold">
                 <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-marker-red" /> +86 18844585349「微信同步」
+                  <Phone className="w-4 h-4 text-marker-red" /> +86 18844585349「微信」
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-marker-red" /> yu@tao1995.cn
