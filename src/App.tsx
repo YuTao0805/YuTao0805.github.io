@@ -11,6 +11,7 @@ import { Projects } from "./components/Projects";
 import { Publications } from "./components/Publications";
 import { Skills } from "./components/Skills";
 import { Photos } from "./components/Photos";
+import { MathBackground } from "./components/MathBackground";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { Github, Twitter, Linkedin, Mail, Phone, Globe, Instagram } from "lucide-react";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
@@ -21,6 +22,7 @@ const AppContent = () => {
 
   return (
     <main className="bg-paper min-h-screen selection:bg-marker-red/20 selection:text-marker-red relative">
+      <MathBackground />
       <LoadingScreen />
       <FloatingNav />
       
