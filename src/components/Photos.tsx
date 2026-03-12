@@ -10,6 +10,7 @@ const photos = [
   { url: "./4.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
   { url: "./5.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
   { url: "./6.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
+  { url: "./7.jpg", title: { zh: "日常瞬间", en: "Daily Moments" } },
 ];
 
 export const Photos = () => {
