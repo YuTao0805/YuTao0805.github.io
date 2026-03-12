@@ -30,7 +30,7 @@ export const Hero = () => {
             style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
           >
             <img 
-              src="https://picsum.photos/seed/yutao/800/800" 
+              src="../img/tao.png" 
               alt={t("hero.name")}
               className="w-full h-full object-cover transition-all duration-700"
               referrerPolicy="no-referrer"
