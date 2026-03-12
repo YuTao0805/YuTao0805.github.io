@@ -15,7 +15,7 @@ const education = [
   {
     school: { zh: "日本高知工科大学", en: "Kochi University of Technology" },
     degree: { zh: "人机交互 硕士研究生", en: "Master in Human-Computer Interaction" },
-    period: "2019 - 2021",
+    period: "2016 - 2017",
     lab: { zh: "人机交互技术研究所 (CHEC)", en: "CHEC" },
     focus: { zh: "人机交互，VR/AR开发", en: "HCI, VR/AR Development" },
     logo: "/kochi.png"
