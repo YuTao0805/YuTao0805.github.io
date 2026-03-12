@@ -64,13 +64,13 @@ const AppContent = () => {
               <h4 className="text-pencil font-heading mb-8 uppercase tracking-widest text-lg">{t("footer.contact")}</h4>
               <ul className="space-y-4 text-pencil text-lg font-bold">
                 <li className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-marker-red" /> +351 *********
+                  <Phone className="w-4 h-4 text-marker-red" /> +86 18844585349「微信同步」
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-marker-red" /> id8670@alunos.uminho.pt
+                  <Mail className="w-4 h-4 text-marker-red" /> yu@tao1995.cn
                 </li>
                 <li className="flex items-center gap-3">
-                  <Globe className="w-4 h-4 text-marker-red" /> alg.uminho.pt
+                  <Globe className="w-4 h-4 text-marker-red" /> www.tao1995.cn
                 </li>
               </ul>
             </div>

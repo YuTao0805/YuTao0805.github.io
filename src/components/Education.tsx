@@ -7,7 +7,7 @@ const education = [
   {
     school: { zh: "葡萄牙米尼奥大学", en: "University of Minho" },
     degree: { zh: "电子与计算机工程 博士研究生", en: "PhD in Electronic and Computer Engineering" },
-    period: "2022 - 2026",
+    period: "2019 - 2026",
     lab: { zh: "算法中心 (Centro ALGORITMI)", en: "Centro ALGORITMI" },
     focus: { zh: "图神经网络，大模型，多模态大模型", en: "GNN, LLM, Multimodal Models" }
   },
