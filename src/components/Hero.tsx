@@ -63,7 +63,7 @@ export const Hero = () => {
             
             <div className="flex flex-wrap gap-6 justify-center md:justify-start">
               <motion.a
-                href="mailto:id8670@alunos.uminho.pt"
+                href="mailto:yu@tao1995.cn"
                 whileHover={{ scale: 1.05, rotate: 1 }}
                 whileTap={{ scale: 0.95, boxShadow: '0px 0px 0px 0px #2d2d2d' }}
                 className="px-8 py-4 bg-white border-[3px] border-pencil text-pencil rounded-none hard-shadow font-heading text-xl hover:bg-marker-red hover:text-white transition-colors flex items-center gap-2"
@@ -86,9 +86,9 @@ export const Hero = () => {
           {/* Vertical Contact Links */}
           <div className="flex flex-row md:flex-col gap-6 md:gap-8 md:border-l-2 md:border-pencil md:border-dashed md:pl-10">
             {[
-              { label: "Wechat", href: "#" },
-              { label: "LinkedIn", href: "https://linkedin.com" },
-              { label: "E-mail", href: "mailto:id8670@alunos.uminho.pt" }
+              { label: "Instagram", href: "https://www.instagram.com/tao___yu/" },
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/yutao0805" },
+              { label: "E-mail", href: "mailto:yu@tao1995.cn" }
             ].map((link) => (
               <motion.a
                 key={link.label}
